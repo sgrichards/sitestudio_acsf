@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\sitestudio_acsf_keyvalue_storage;
+namespace Drupal\sitestudio_acsf;
 
 use Drupal\Core\DependencyInjection\ContainerBuilder;
 use Drupal\Core\DependencyInjection\ServiceProviderBase;
