@@ -1,0 +1,26 @@
+<?php
+
+/**
+ * @file
+ * Contains sitestudio_acsf_keyvalue_storage.install.
+ */
+
+/**
+ * Implements hook_install().
+ *
+ * Adjusts the weight of this module to ensure the templateLoader is registered before anything else.
+ */
+function sitestudio_acsf_keyvalue_storage_install() {
+  module_set_weight('sitestudio_acsf_keyvalue_storage', -100);
+
+  $module_handler = \Drupal::moduleHandler();
+  $module_data = \Drupal::service('extension.list.module')->getList();
+  // Rebuild and reboot a new kernel.
+  $files = [];
+  foreach ($module_data as $name => $extension) {
+    if ($extension->status) {
+      $files[$name] = $extension;
+    }
+  }
+  \Drupal::service('kernel')->updateModules($module_handler->getModuleList(), $files);
+}

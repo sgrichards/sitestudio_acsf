@@ -1,0 +1,7 @@
+name: Site Studio ACSF
+type: module
+description: 'Provides Site Studio specific configuration for Acquia Site Factory.'
+core_version_requirement: ^8.8.0 || ^9
+package: Site Studio
+dependencies:
+  - cohesion
