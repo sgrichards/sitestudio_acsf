@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains sitestudio_acsf_keyvalue_storage.install.
+ * Contains sitestudio_acsf.install.
  */
 
 /**
@@ -10,8 +10,8 @@
  *
  * Adjusts the weight of this module to ensure the templateLoader is registered before anything else.
  */
-function sitestudio_acsf_keyvalue_storage_install() {
-  module_set_weight('sitestudio_acsf_keyvalue_storage', -100);
+function sitestudio_acsf_install() {
+  module_set_weight('sitestudio_acsf', -100);
 
   $module_handler = \Drupal::moduleHandler();
   $module_data = \Drupal::service('extension.list.module')->getList();
