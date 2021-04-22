@@ -8,7 +8,7 @@ use Drupal\Core\DependencyInjection\ServiceProviderBase;
 /**
  * Modifies the Site Studio template storage service.
  */
-class SiteStudioKeyValueStorageServiceProvider extends ServiceProviderBase {
+class SiteStudioAcsfServiceProvider extends ServiceProviderBase {
 
   /**
    * {@inheritdoc}
