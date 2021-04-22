@@ -24,3 +24,29 @@ function sitestudio_acsf_install() {
   }
   \Drupal::service('kernel')->updateModules($module_handler->getModuleList(), $files);
 }
+
+/**
+ * Implements hook_requirements().
+ *
+ * Add Site Studio storage info to the status page.
+ *
+ * @param $phase
+ * @return array
+ */
+function sitestudio_acsf_requirements($phase) {
+  $requirements = [];
+  if ($phase == 'runtime') {
+    $requirements['stylesheet_json_storage'] = [
+      'title' => t('Site Studio: Stylesheet JSON Storage'),
+      'value' => \Drupal::configFactory()->get('cohesion.settings')->get('stylesheet_json_storage_keyvalue') ? t('Database') : t('Filesystem'),
+      'severity' => REQUIREMENT_INFO,
+    ];
+    $service = \Drupal::service('cohesion.template_storage');
+    $requirements['twig_template_storage'] = [
+      'title' => t('Site Studio: Twig template storage'),
+      'value' => strpos($service->_serviceId, 'key_value') ? t('Database') : t('Filesystem'),
+      'severity' => REQUIREMENT_INFO,
+    ];
+  }
+  return $requirements;
+}
