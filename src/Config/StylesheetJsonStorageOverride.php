@@ -15,7 +15,7 @@ class StylesheetJsonStorageOverride implements ConfigFactoryOverrideInterface {
    * {@inheritdoc}
    */
   public function loadOverrides($names) {
-    $overrides = array();
+    $overrides = [];
     if (in_array('cohesion.settings', $names)) {
       $overrides['cohesion.settings'] = ['stylesheet_json_storage_keyvalue' => TRUE];
     }
@@ -42,4 +42,5 @@ class StylesheetJsonStorageOverride implements ConfigFactoryOverrideInterface {
   public function createConfigObject($name, $collection = StorageInterface::DEFAULT_COLLECTION) {
     return NULL;
   }
+
 }
