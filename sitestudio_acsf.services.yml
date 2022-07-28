@@ -1,5 +1,5 @@
 services:
-  sitestudio_acms.overrider:
+  sitestudio_acsf.override:
     class: Drupal\sitestudio_acsf\Config\StylesheetJsonStorageOverride
     tags:
       - { name: config.factory.override, priority: 5 }
