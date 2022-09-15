@@ -23,6 +23,11 @@ function sitestudio_acsf_install() {
     }
   }
   \Drupal::service('kernel')->updateModules($module_handler->getModuleList(), $files);
+
+  // Inform the user that a rebuild is required following installation.
+  $message = t('A <a href="@link">Site Studio rebuild</a> is required to migrate all templates to the database.', ['@link' => '/admin/cohesion/developer/rebuild']);
+  \Drupal::messenger()->addWarning($message);
+  \Drupal::logger('sitestudio_acsf')->warning($message);
 }
 
 /**
